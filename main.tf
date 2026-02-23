@@ -1,5 +1,13 @@
-provider "aws" {
-  region     = "us-east-1"
-  access_key = "FAKE"
-  secret_key = "FAKE"
+terraform {
+  required_providers {
+    local = {
+      source  = "hashicorp/local"
+      version = "~> 2.3"
+    }
+  }
+}
+
+resource "local_file" "test_file" {
+  content  = "test pour Module 1"
+  filename = "test.txt"
 }
